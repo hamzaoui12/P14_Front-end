@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { states } from "@/utils/states";
-import { Modal } from "@/components/ui/Modal";
-import { DatePicker } from "@/components/ui/DatePicker";
+import { Modal } from "@/components/utils/Modal";
+import { DatePicker } from "@/components/utils/DatePicker";
 import { routes } from "@/routes";
+import { SelectState } from "@/components/ui/SelectState";
+import { SelectDepartment } from "@/components/ui/SelectDepartment";
 
 const Home = () => {
   const [success, setSuccess] = useState(false);
@@ -115,19 +116,10 @@ const Home = () => {
               onChange={(e) => setCity(e.target.value)}
             />
 
-            <label htmlFor="state">State</label>
-            <select
-              className="border border-black py-0.5 px-2 rounded"
-              id="state"
+            <SelectState
               value={state}
               onChange={(e) => setState(e.target.value)}
-            >
-              {states.map((state) => (
-                <option key={state.abbreviation} value={state.abbreviation}>
-                  {state.name}
-                </option>
-              ))}
-            </select>
+            />
 
             <label htmlFor="zip-code">Zip Code</label>
             <input
@@ -139,19 +131,10 @@ const Home = () => {
             />
           </fieldset>
 
-          <label htmlFor="department">Department</label>
-          <select
-            className="border border-black py-0.5 px-2 rounded"
-            id="department"
+          <SelectDepartment
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-          >
-            <option>Sales</option>
-            <option>Marketing</option>
-            <option>Engineering</option>
-            <option>Human Resources</option>
-            <option>Legal</option>
-          </select>
+          />
 
           <button
             className="mt-4 border border-black w-1/2 mx-auto py-1 rounded hover:scale-105"
