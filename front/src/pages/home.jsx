@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Modal } from "@/components/utils/Modal";
-import { DatePicker } from "@/components/utils/DatePicker";
 import { routes } from "@/routes";
 import { SelectState } from "@/components/ui/SelectState";
 import { SelectDepartment } from "@/components/ui/SelectDepartment";
+import { DatePicker } from "datepicker-react-projet14";
 
 const Home = () => {
   const [success, setSuccess] = useState(false);
@@ -49,22 +49,22 @@ const Home = () => {
 
   return (
     <>
-      <div className="mx-auto h-screen flex flex-col justify-center items-center">
+      <div className="mx-auto h-screen flex flex-col justify-center items-center gap-4">
         <div className="flex flex-col gap-4 text-center">
-          <h1 className="text-4xl font-bold">HRnet</h1>
+          <h1 className="text-3xl font-bold">HRnet</h1>
           <Link
             to={routes.employees}
-            className="text-sm font-light hover:scale-105"
+            className="text-xs font-light underline underline-offset-2 hover:scale-105"
           >
             View Current Employees
           </Link>
         </div>
-        <h2 className="mt-8 text-2xl font-semibold">Create Employee</h2>
+        <h2 className="text-xl font-semibold">Create Employee</h2>
         <form
-          className="flex flex-col gap-2 mt-4"
+          className="flex flex-col gap-2"
           onSubmit={(e) => e.preventDefault()}
         >
-          <label htmlFor="first-name">First Name</label>
+          <label className="text-xs" htmlFor="first-name">First Name</label>
           <input
             className="border border-black py-0.5 px-2 rounded"
             type="text"
@@ -73,7 +73,7 @@ const Home = () => {
             onChange={(e) => setFirstName(e.target.value)}
           />
 
-          <label htmlFor="last-name">Last Name</label>
+          <label className="text-xs" htmlFor="last-name">Last Name</label>
           <input
             className="border border-black py-0.5 px-2 rounded"
             type="text"
@@ -82,13 +82,13 @@ const Home = () => {
             onChange={(e) => setLastName(e.target.value)}
           />
 
-          <label htmlFor="date-of-birth">Date of Birth</label>
+          <label className="text-xs" htmlFor="date-of-birth">Date of Birth</label>
           <DatePicker
             selected={dateOfBirth}
             onDateChange={(date) => setDateOfBirth(date)}
           />
 
-          <label htmlFor="start-date">Start Date</label>
+          <label className="text-xs" htmlFor="start-date">Start Date</label>
           <DatePicker
             selected={startDate}
             onDateChange={(date) => setStartDate(date)}
@@ -98,7 +98,7 @@ const Home = () => {
             <legend className="text-center mt-2 font-semibold text-xl">
               Address
             </legend>
-            <label htmlFor="street">Street</label>
+            <label className="text-xs" htmlFor="street">Street</label>
             <input
               className="border border-black py-0.5 px-2 rounded"
               type="text"
@@ -107,7 +107,7 @@ const Home = () => {
               onChange={(e) => setStreet(e.target.value)}
             />
 
-            <label htmlFor="city">City</label>
+            <label className="text-xs" htmlFor="city">City</label>
             <input
               className="border border-black py-0.5 px-2 rounded"
               type="text"
@@ -121,7 +121,7 @@ const Home = () => {
               onChange={(e) => setState(e.target.value)}
             />
 
-            <label htmlFor="zip-code">Zip Code</label>
+            <label className="text-xs" htmlFor="zip-code">Zip Code</label>
             <input
               className="border border-black py-0.5 px-2 rounded"
               type="number"

@@ -1,7 +1,7 @@
 export const Select = ({ label, id, value, onChange, options }) => {
   return (
     <div className="flex flex-col">
-      <label htmlFor={id} className="mb-1">
+      <label htmlFor={id} className="text-sm mb-1">
         {label}
       </label>
       <select
