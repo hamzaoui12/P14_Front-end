@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { TableHeader } from "@/components/ui/TableHeader";
 import { TableRow } from "@/components/ui/TableRows";
@@ -8,17 +8,13 @@ import { SearchBar } from "@/components/ui/SearchBar";
 import { EntriesInfo } from "@/components/ui/EntriesInfo";
 import { Pagination } from "@/components/ui/Pagination";
 import { routes } from "@/routes";
+import { useSelector } from "react-redux";
 
 const Employees = () => {
-  const [employees, setEmployees] = useState([]);
+  const employees = useSelector((state) => state.employees.employees);
   const [entries, setEntries] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    const storedEmployees = JSON.parse(localStorage.getItem("employees")) || [];
-    setEmployees(storedEmployees);
-  }, []);
 
   const filteredEmployees = employees.filter((employee) =>
     Object.values(employee)
